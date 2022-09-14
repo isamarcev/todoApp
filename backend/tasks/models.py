@@ -2,7 +2,10 @@ from django.db import models
 from django.conf import settings
 
 def get_next_id():
-    next_id = int(Task.objects.order_by('-id').first().id) + 1
+    try:
+        next_id = int(Task.objects.order_by('-id').first().id) + 1
+    except AttributeError:
+        next_id=1
     print(next_id)
     return next_id
 
@@ -15,8 +18,9 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.user.username} - {self.title}'
+        return f'{self.user.email} - {self.title}'
+
 
 class SubTask(models.Model):
     title = models.CharField(max_length=200)
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='subtasks')

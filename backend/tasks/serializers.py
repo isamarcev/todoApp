@@ -12,14 +12,16 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['email']
 
 
-class TaskSerializer(serializers.ModelSerializer):
-    # user = UserSerializer()
-    class Meta:
-        model = Task
-        fields = '__all__'
+
 
 class SubTaskSerializer(serializers.ModelSerializer):
-    task = TaskSerializer()
     class Meta:
         model = SubTask
+        fields = ['title', 'task']
+
+
+class TaskSerializer(serializers.ModelSerializer):
+    # user = serializers.HiddenField(default=serializers.CurrentUserDefault)
+    class Meta:
+        model = Task
         fields = '__all__'
