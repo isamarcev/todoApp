@@ -12,8 +12,8 @@ def get_next_id():
 class Task(models.Model):
     id = models.IntegerField(unique=True, default=get_next_id, primary_key=True)
     title = models.CharField(max_length=200)
-    color_list = [('blue', 'blue'), ('green', 'green'), ('orange', 'orange')]
-    color = models.CharField(max_length=20, choices=color_list, null=True)
+    color_list = [('blue', '#9fc5f8'), ('green', '#93c47d'), ('orange', '#f9cb9c')]
+    color = models.CharField(max_length=20, null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -23,4 +23,4 @@ class Task(models.Model):
 
 class SubTask(models.Model):
     title = models.CharField(max_length=200)
-    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='subtasks')
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
