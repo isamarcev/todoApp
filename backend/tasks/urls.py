@@ -18,5 +18,4 @@ router.register(r'tasks', TaskViewSet, basename='Tasks')
 router.register(r'subtasks', SubTaskViewSet, basename='subtask')
 
 urlpatterns += router.urls
-print(router.urls)
 
