@@ -12,14 +12,19 @@ export default {
 
 <style scoped>
 .btn {
-  align-self: flex-end;
+  /*align-self: flex-end;*/
   padding: 10px 15px;
-  background: none;
-  color: teal;
-  border: 1px solid teal;
+  background: seagreen;
+  color: white;
+  border: 2px solid teal;
+  border-radius: 4px;
+  transition: 0.5s;
 
 }
 .btn:hover{
-  background: teal;
+  background: #b3e7f1;
+  color: black;
+  cursor: pointer;
 }
+
 </style>

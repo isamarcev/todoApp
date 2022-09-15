@@ -7,14 +7,14 @@ import Register from "@/pages/Register";
 const routes = [
     {
         path: '/',
-        component: Auth,
-    },
-    {
-        path: '/tasks',
         component: UserPage,
     },
     {
-        path: '/register',
+        path: "/auth",
+        component: Auth,
+    },
+    {
+        path: "/register",
         component: Register,
     }
 ]

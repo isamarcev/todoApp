@@ -25,5 +25,11 @@ export default {
 .input {
   border: 1px solid teal;
   padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.input:focus {
+  border: 1px solid teal;
 }
 </style>

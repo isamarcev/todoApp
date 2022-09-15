@@ -3,7 +3,9 @@ import { createStore } from "vuex";
 export default createStore({
     state: {
         token: '',
-        isAuthenticated: false
+        isAuthenticated: false,
+        email: ''
+
     },
     mutations: {
         initializeStore(state) {
@@ -22,6 +24,9 @@ export default createStore({
         removeToken(state) {
             state.token = ''
             state.isAuthenticated = false
+        },
+        setEmail(state, email) {
+            state.email = email
         }
     },
     actions: {
